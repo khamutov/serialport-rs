@@ -52,6 +52,7 @@ mod raw {
             all(
                 target_os = "linux",
                 not(any(
+                    feature = "posix-termios",
                     target_env = "musl",
                     target_arch = "powerpc",
                     target_arch = "powerpc64"
@@ -69,6 +70,7 @@ mod raw {
             all(
                 target_os = "linux",
                 not(any(
+                    feature = "posix-termios",
                     target_env = "musl",
                     target_arch = "powerpc",
                     target_arch = "powerpc64"
@@ -168,6 +170,7 @@ pub fn tiocmbis(fd: RawFd, status: SerialLines) -> Result<()> {
     all(
         target_os = "linux",
         not(any(
+            feature = "posix-termios",
             target_env = "musl",
             target_arch = "powerpc",
             target_arch = "powerpc64"
@@ -187,6 +190,7 @@ pub fn tcgets2(fd: RawFd) -> Result<libc::termios2> {
     all(
         target_os = "linux",
         not(any(
+            feature = "posix-termios",
             target_env = "musl",
             target_arch = "powerpc",
             target_arch = "powerpc64"

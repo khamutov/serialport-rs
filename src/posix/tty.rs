@@ -520,6 +520,7 @@ impl SerialPort for TTYPort {
         all(
             target_os = "linux",
             not(any(
+                feature = "posix-termios",
                 target_env = "musl",
                 target_arch = "powerpc",
                 target_arch = "powerpc64"
@@ -571,6 +572,7 @@ impl SerialPort for TTYPort {
     #[cfg(all(
         target_os = "linux",
         any(
+            feature = "posix-termios",
             target_env = "musl",
             target_arch = "powerpc",
             target_arch = "powerpc64"
